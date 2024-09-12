@@ -1,31 +1,37 @@
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Calculadora {
     public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
+        try {
+            Scanner tec = new Scanner(System.in);
 
-        double num1;
-        double num2;
-        String op;
+            double num1;
+            double num2;
+            String op;
 
-        boolean continuarSoma;
+            boolean continuarSoma;
 
-        do {
-            System.out.println("Digite um numero: ");
-            num1 = tec.nextInt();
+            do {
+                System.out.println("Digite um numero: ");
+                num1 = tec.nextInt();
 
-            System.out.println("Escolha a operação: [+] [-] [*] [/]");
-            op = tec.next();
+                System.out.println("Escolha a operação: [+] [-] [*] [/]");
+                op = tec.next();
 
-            System.out.println("Digite um numero: ");
-            num2 = tec.nextInt();
+                System.out.println("Digite um numero: ");
+                num2 = tec.nextInt();
 
-            System.out.println("Resultado: " + operacao(num1,op,num2));
-            continuarSoma = continuarSoma();
-        } while (continuarSoma);
+                System.out.println("Resultado: " + operacao(num1, op, num2));
+                continuarSoma = continuarSoma();
+            } while (continuarSoma);
+        } catch (InputMismatchException e) {
+            System.err.println("O Valor digitado Nao Correponde a um numero.");
+        }
 
     }
+
 
     public static boolean continuarSoma() {
         Scanner tec = new Scanner(System.in);
